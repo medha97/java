@@ -3,19 +3,15 @@ import java.util.Scanner;
 public class Indexelement {
 
     public static int findIndex(int[] arr, int num, int n){
-        int low, high, mid =0 ;
-        low = 0;
-        high = n-1;
-        while(low < high){
-            mid = (low + high) / 2;
-            if(arr[mid] == num)
-                return mid;
-            else if(arr[mid] < num)
-                low = mid;
-            else 
-                high = mid;
+        
+        for(int i=0; i<n; i++){
+            if(arr[i]==num)
+                return i;
+
+            else if(arr[i] > num)
+                return i;
         }
-        return mid;
+        return n;
     }
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
