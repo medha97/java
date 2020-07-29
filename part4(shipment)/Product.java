@@ -38,4 +38,20 @@ public class Product {
         }
         return false;
     }
+
+    void genrateBill(Map<String, Integer> itemList){
+        System.out.println("------------------------");
+        System.out.println("Invoice Generated:");
+        System.out.println("Product Name\t|\tProduct Price\t|\tProduct Quantity\t|\tPrice");
+        int sum = 0;
+        for(Map.Entry m : itemList.entrySet()){
+            for(Map.Entry n : price.entrySet()){
+                if(m.getKey().equals(n.getKey())){
+                    System.out.println(m.getKey() + "\t\t\t" + n.getValue() + "\t\t\t" + m.getValue()+"\t\t\t\t" + ((int)m.getValue()*(int)n.getValue()));
+                    sum += ((int)m.getValue()*(int)n.getValue());
+                }
+            }
+        }
+        System.out.println("\n\n\t\t\t\t\t\t\t\t   TOTAL PRICE: "+sum);
+    }
 }
